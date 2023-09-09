@@ -54,7 +54,7 @@ namespace DailyDataFormat
                 var lines = new List<string>();
                 var valueLines = Stockdata.Where(row => row.Name != null).Select(row => string.Join(",", new string[] { row.Name, row.dateDate, row.Open, row.High, row.Low, row.Close, row.Volume }));
                 lines.AddRange(valueLines);
-                File.WriteAllLines("Output\\" + filedate + "-NSE-EQ-F.txt", lines.ToArray());
+                File.WriteAllLines("Output\\" + filedate + "-NSE-EQ.txt", lines.ToArray());
 
                 var linesN = new List<string>();
                 var valueLinesN = Newdata.Where(row => row.Name != null).Select(row => string.Join(",", new string[] { row.Name, row.dateDate, row.Open, row.High, row.Low, row.Close, row.Volume }));
@@ -116,7 +116,7 @@ namespace DailyDataFormat
                 var lines = new List<string>();
                 var valueLines = Stockdata.Where(row => row.Name != null).Select(row => string.Join(",", new string[] { row.Name, row.dateDate, row.Open, row.High, row.Low, row.Close, row.Volume }));
                 lines.AddRange(valueLines);
-                File.WriteAllLines("Output\\" + filedate + "-NSE-EQ-F.txt", lines.ToArray());
+                File.WriteAllLines("Output\\" + filedate + "-NSE-EQ.txt", lines.ToArray());
 
                 var linesN = new List<string>();
                 var valueLinesN = Newdata.Where(row => row.Name != null).Select(row => string.Join(",", new string[] { row.Name, row.dateDate, row.Open, row.High, row.Low, row.Close, row.Volume }));
