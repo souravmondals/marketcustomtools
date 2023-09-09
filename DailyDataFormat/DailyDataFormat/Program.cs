@@ -61,9 +61,24 @@ namespace DailyDataFormat
                 linesN.AddRange(valueLinesN);
                 if (Newdata.Count > 0)
                 {
-                    File.WriteAllLines("temp\\" + filedate + "-New-Stock.txt", linesN.ToArray());
-                    Console.WriteLine("New stock found, Please update sample.text :- ");
-                    Console.ReadLine();
+                    Console.WriteLine("New stock found...................");
+                    Console.WriteLine(string.Join("\n", linesN));
+                    Console.WriteLine("Press 1 for add into Sample, 2 for skiplist, 3 for ignore :- ");
+                    string input = Console.ReadLine();
+                    if (input=="1")
+                    {
+                        File.AppendAllLines("sample.txt", linesN.ToArray());
+                    }
+                    else if (input == "2")
+                    {
+                        File.AppendAllLines("skiplist.txt", linesN.ToArray());
+                    }
+                    else
+                    {
+                        File.WriteAllLines("temp\\" + filedate + "-New-Stock.txt", linesN.ToArray());
+                    }
+                                       
+                    
                     StockList = File.ReadAllLines("sample.txt")
                                             .Select(v => getStockList(v))
                                             .ToList();
@@ -108,9 +123,24 @@ namespace DailyDataFormat
                 linesN.AddRange(valueLinesN);
                 if (Newdata.Count > 0)
                 {
-                    File.WriteAllLines("temp\\" + filedate + "-New-Stock.txt", linesN.ToArray());
-                    Console.WriteLine("New stock found, Please update sample.text :- ");
-                    Console.ReadLine();
+                    Console.WriteLine("New stock found...................");
+                    Console.WriteLine(string.Join("\n", linesN));
+                    Console.WriteLine("Press 1 for add into Sample, 2 for skiplist, 3 for ignore :- ");
+                    string input = Console.ReadLine();
+                    if (input == "1")
+                    {
+                        File.AppendAllLines("sample.txt", linesN.ToArray());
+                    }
+                    else if (input == "2")
+                    {
+                        File.AppendAllLines("skiplist.txt", linesN.ToArray());
+                    }
+                    else
+                    {
+                        File.WriteAllLines("temp\\" + filedate + "-New-Stock.txt", linesN.ToArray());
+                    }
+
+
                     StockList = File.ReadAllLines("sample.txt")
                                             .Select(v => getStockList(v))
                                             .ToList();
@@ -126,7 +156,8 @@ namespace DailyDataFormat
                 Notfounddata = new List<string>();
             }
 
-
+            Console.WriteLine("All done enter for exit...................");
+            Console.ReadLine();
         }
 
 
